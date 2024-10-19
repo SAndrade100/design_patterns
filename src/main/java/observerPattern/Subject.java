@@ -5,7 +5,7 @@ import java.util.*;
 // Classe onde as alterações são vigiadas
 
 public class Subject implements ISubject {
-    List<Observer> observerList = new ArrayList<Observer>();
+    List<IObserver> observerList = new ArrayList<IObserver>();
     private int _flag;
 
     public int getFlag() {
@@ -14,7 +14,7 @@ public class Subject implements ISubject {
 
     public void setFlag(int flag) {
         this._flag = flag;
-        notifyObservers();
+        notifyObservers(this.getFlag());
     }
 
     @Override
@@ -28,9 +28,9 @@ public class Subject implements ISubject {
     }
 
     @Override
-    public void notifyObservers() {
-        for (Observer observer : observerList) {
-            observer.update();
+    public void notifyObservers(int flag) {
+        for (IObserver observer : observerList) {
+            observer.update(flag);
         }
     }
 }
