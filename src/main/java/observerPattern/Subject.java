@@ -2,6 +2,8 @@ package observerPattern;
 
 import java.util.*;
 
+// Classe onde as alterações são vigiadas
+
 public class Subject implements ISubject {
     List<Observer> observerList = new ArrayList<Observer>();
     private int _flag;
